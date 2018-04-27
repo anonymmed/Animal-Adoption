@@ -1,0 +1,33 @@
+<style type="text/css">
+    table{border-collapse: collapse;width: 40%;font-size: 10pt;} table,th,td{border:1px solid rgb(88, 111, 45);} th{background:rgb(88, 111, 45);color: white;}
+</style>
+<table id="example2" class="table table-bordered table-hover">
+    <thead>
+    <th>id</th>
+    <th>Nom</th>
+    <th>Espece</th>
+    <th>Race</th>
+    <th>Sexe</th>
+    <th>Taille</th>
+    <th>Age</th>
+    <th>Region</th>
+    <th>Refuge</th>
+    <th>Etat</th>
+    </thead>
+    <tbody>
+    {% for animal in animals  %}
+    <tr><td>{{  animal.id}}</td>
+        <td>{{  animal.nom }}</td>
+        <td>{{  animal.race }}</td>
+        <td>{{  animal.espece }}</td>
+        <td>{{  animal.sexe }}</td>
+        <td>{{  animal.taille }}</td>
+        <td>{{  animal.age }}</td>
+        <td>{{  animal.region }}</td>
+        <td>{{  animal.idRefuge.libelle }}</td>
+        <td>{{  animal.etat }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+

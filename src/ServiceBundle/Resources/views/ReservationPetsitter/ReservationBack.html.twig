@@ -1,0 +1,60 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+
+{% block  content%}
+    <a href="{{ path('argent_encaisser') }}" class="btn btn-default"><span>Apport des petsitter</span></a>
+
+    <center><h1>Liste Des Reservations</h1>
+    <div class="box-body">
+    <form>
+        <input type="text" name="mot" id="mot" placeholder="chercher">
+    </form> <br>
+    <style type="text/css">
+        table{border-collapse: collapse;width: 40%;font-size: 10pt;} table,th,td{border:1px solid #cfbfa6;} th{background:#cfbfa6;color: white;}
+    </style>
+    <table id="example2" class="table table-bordered table-hover">
+<thead>
+                        <th>Id reservation</th>
+                        <th>Nom et prénom petsitter</th>
+                        <th>Prix</th>
+                        <th>Date Debut</th>
+                        <th>Date Fin</th>
+                        <th>Encaisser</th>
+
+
+        </thead>
+                        <tbody id="tbody">
+                        
+                        {% for r in reservations  %}
+                            <tr><td>{{  r.id}}</td>
+                                <td>{{  r.idPetsitter.nom}}  {{  r.idPetsitter.prenom}}</td>
+                                <td>{{  r.prix}} Dt</td>
+                                <td>{{  r.dateDebut|date}}</td>
+                                <td>{{  r.dateFin|date}}</td>
+                                <td>{{  r.encaisser}} Dt</td>
+
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script>
+        $('#mot').keyup(function () {
+            var input=$('#mot').val();
+            $.ajax({
+                url:"{{ path('searchAjaxReservation') }}",
+                type:'Post',
+                data:{'mot':input},
+                success:function (data) {
+                    //console.log(data);
+                    $.each(data,function (i,e) {
+                        $('#tbody').html("<table id='#tbody'><tr><td>"+e.id+"</td><td>"+e.idPetsitter.nom+" "+e.idPetsitter.prenom+"</td><td>"+e.prix+"</td><td>"+e.date+"</td><td>"+e.encaisser+"</td></tr></table>");
+                    })
+                }
+            })
+
+        });
+
+    </script>
+
+{% endblock %}

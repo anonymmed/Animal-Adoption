@@ -1,0 +1,81 @@
+ajouter_centre_toilettage:
+    path:     /ajouterCentreToilettage
+    defaults: { _controller: soinBundle:centreToilettage:ajouterCentreToilettage }
+
+modifier_centre_toilettage:
+    path:     /modifierCentreToilettage/{id}
+    defaults: { _controller: soinBundle:centreToilettage:modifierCentreToilettage }
+
+supprimer_centre_toilettage:
+    path:     /supprimerCentreTilettage{id}
+    defaults: { _controller: soinBundle:centreToilettage:supprimerCentreToilettage }
+
+afficher_centre_toilettage:
+    path:     /afficherCentreToilettage
+    defaults: { _controller: soinBundle:centreToilettage:afficherCentreToilettage }
+info_centre:
+    path:     /infoCentre{id}
+    defaults: { _controller: soinBundle:centreToilettage:info_centre }
+info_veterinaire:
+    path:     /infoVeterinaire
+    defaults: { _controller: soinBundle:centreToilettage:info_Veterinaire }
+afficher_tutoriel:
+    path:     /afficherTutoriel
+    defaults: { _controller: soinBundle:Default:afficherTutoriel }
+centreToilettage_front:
+    path:     /centreToilettagePage
+    defaults: { _controller: soinBundle:centreToilettage:centreToilettagePage }
+reserver_veterinaire:
+    path:     /reserver_veterinaire{id}
+    defaults: { _controller: soinBundle:reservationVeterinaire:reserverVeterinairer }
+graphePie:
+ path: /statistique
+ defaults: { _controller: soinBundle:reservationVeterinaire:statistique}
+veterinaire_single:
+     path:     /veterinaire_single{id}
+     defaults: { _controller: soinBundle:reservationVeterinaire:singleVeterinaire }
+searchAjax:
+     path:     /searchAjax
+     defaults: { _controller: soinBundle:centreToilettage:searchAjax }
+
+
+
+
+
+afficher_veterinaire:
+    path:     /afficher_veterinaire
+    defaults: { _controller: soinBundle:reservationVeterinaire:afficher_veterinaire}
+
+supprimer_veterinaire:
+    path:     /supprimer_veterinaire{id}
+    defaults: { _controller: soinBundle:reservationVeterinaire:supprimerVeterinaire}
+afficher_veterinaire_front:
+    path:     /afficher_veterinaires_front
+    defaults: { _controller: soinBundle:reservationVeterinaire:afficherVeterinairesFront }
+supprimer_rdv:
+    path:     /supprimerRDV{id}
+    defaults: { _controller: soinBundle:reservationVeterinaire:supprimerRDV }
+
+afficher_rdv_vet:
+    path:     /afficherRDV{id}
+    defaults: { _controller: soinBundle:reservationVeterinaire:afficher_rdv_veterinaire }
+
+PDF:
+    path:     /PDF
+    defaults: { _controller: soinBundle:reservationVeterinaire:PDFListeClient }
+
+afficher_veterinaire_pdf:
+    path:     /generatePDF
+    defaults: { _controller: soinBundle:reservationVeterinaire:GeneratePDF }
+
+afficher_rdv_pris:
+    path:     /rdv_pris{id}
+    defaults: { _controller: soinBundle:reservationVeterinaire:rdv_pris }
+
+modifierMonRdv:
+    path:     /modifierMonRDV{id}{id_reservationVeterinaire}
+    defaults: { _controller: soinBundle:reservationVeterinaire:modifierMonRdv}
+supprimerMonRdv:
+    path:     /supprimerMonRDV{id}{id_reservationVeterinaire}
+    defaults: { _controller: soinBundle:reservationVeterinaire:supprimerMonRdv}
+

@@ -1,0 +1,56 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+
+
+{% block content %}
+<center>
+    <div class="product">
+
+        <div class="container">
+            <div class="col-md-9">
+                <div class="mid-popular">
+                    {% for centre in centresT  %}
+
+                        <div class="col-md-4 item-grid1 simpleCart_shelfItem">
+
+                            <div >
+                                <div >
+                                 <center>   <img src="{{ asset(centre.image )}}" height="200" width="200"> </center>
+
+                                </div>
+                                <br>
+                                    <div>
+                                        <div>
+                                         <h2> <span>{{  centre.libelle }}</span> </h2>
+
+                                        </div>
+
+                                    </div>
+                                </br>
+
+                                    <div>
+                                        <h3> <p ><span>{{ centre.adresse }} </span> </p> </h3>
+                                    </div>
+
+
+                                </br>  </br>
+                                    <a href="{{ path('info_centre',{'id':centre.id}) }}" class="btn btn-warning"><span>Plus de details </span></a>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(centresT) }}
+    </div>
+</center>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+{% block  content%}
+    <style>
+        #map{
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <br>
+ <div class="single">
+     <div class="container">
+        <div class="col-md-9">
+            <div class="col-md-5 grid">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li data-thumb="images/si.jpg">
+                            <div class="thumb-image"><img src="{{ asset('images/' ~ centreD.image) }}" class="img-responsive" alt=""></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-7 single-top-in">
+                <div class="span_2_of_a1 simpleCart_shelfItem">
+            <h3>Centre de dressage</h3>
+            <p class="in-para"> Ceci sont les informations du centre de dressage pour animaux</p>
+            <div class="price_single">
+                <span class="reducedfrom item_price">{{  centreD.libelle }}</span>
+                <div class="clearfix"></div>
+            </div>
+            <h4 class="quick">Description:</h4>
+            <p class="quick_desc"> Le centre {{  centreD.libelle }} est situé à {{  centreD.adresse }}.Il est {{ centreD.description }} et trés bien réputé.
+                Pour le contacter ou pour avoir plus d'information sur les différentes préstations offerte veuillez appeler le : {{ centreD.tel }}
+                    <div id="map"></div>
+                    </p>
+
+                    <div class="wish-list">
+
+            <div class="clearfix"> </div>
+        </div>
+
+    </div>
+    </div>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+     <script>
+
+         function initMap(){
+             var options={
+                 zoom:18,
+                 center:{lat:{{  centreD.lat }},lng:{{  centreD.lng }}}
+             }
+             var map= new google.maps.Map(document.getElementById('map'),options);
+             var marker=new google.maps.Marker({
+                 position:{lat:{{  centreD.lat }},lng:{{  centreD.lng }}},
+                 map:map
+             });
+             var infoWindow=new google.maps.InfoWindow(
+                 {
+                     content:'<h2>{{  centreD.libelle }}</h2>'
+                 }
+             );
+             marker.addListener('click',function () {
+                 infoWindow.open(map,marker);
+
+             })
+         }
+     </script>
+     <script async defer
+             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfMSkwICqtZsx26_5hVkFYVakW1c1fUTQ&callback=initMap">
+     </script>
+ </div>
+    <br><br><br>
+
+{% endblock %}
+

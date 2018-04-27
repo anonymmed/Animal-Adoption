@@ -1,0 +1,55 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+{% block  content%}
+
+    <br><br>
+
+    <form action="{{ path('reserver_petsitter') }}">
+        <div class="single">
+        <div class="container">
+        <div class="col-md-9">
+            <div class="col-md-5 grid">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li data-thumb="images/si.jpg">
+                            <div class="thumb-image"> <img src="{{ asset('images/saly.jpg') }}" data-imagezoom="true" class="img-responsive"> </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7 single-top-in">
+        <div class="span_2_of_a1 simpleCart_shelfItem">
+            <h3>{{  petsitter.nom }}</h3>
+            <p class="in-para"> Pet sitter trés gentil</p>
+            <div class="price_single">
+                <span class="reducedfrom item_price"><input type="hidden" value="{{  petsitter.id}}0" name="prix">{{  petsitter.id}}0DT</span>
+                <div class="clearfix"></div>
+            </div>
+            <h4 class="quick">Description:</h4>
+            <p class="quick_desc"> Je m'appelle {{  petsitter.nom }} {{  petsitter.prenom }} j'habite à {{  petsitter.adresse}} J'adore les animaux et j'aime en prendre soin et jouer avec eux.
+                Je suis quelqu'un de confience qui aime faire son travail et je prenderais bien soin de votre animal alors appeller moi sur le : {{  petsitter.telephone }}
+            </p>
+            <div class="wish-list">
+                <h4 class="quick">Date Debut:</h4> <input type="date" name="dateD"  class=" hvr-skew-backward">
+                <h4 class="quick">Date Fin: </h4><input type="date" name="dateF" class=" hvr-skew-backward" >
+
+                <input type="hidden" value="{{ petsitter.id }}" name="idP">
+                {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+
+                <input type="hidden" value="{{ app.user.id }}" name="idU">
+                <input type="submit" class="add-to item_add hvr-skew-backward" value="Reserver">
+
+                {% endif %}
+            <div class="clearfix"> </div>
+        </div>
+
+    </div>
+    </div>
+    <div class="clearfix"> </div>
+        </div>
+    </div>
+        </div>
+</form>
+    <br><br>
+
+{% endblock %}
+

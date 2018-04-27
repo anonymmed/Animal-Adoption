@@ -1,0 +1,43 @@
+{% extends '@Template/Layout/single.html.twig' %}
+
+{% block product %}
+<div class="check-out">
+    <div class="container">
+
+        <div class="bs-example4" data-example-id="simple-responsive-table">
+            <div class="table-responsive">
+                <table class="table-heading simpleCart_shelfItem">
+                    <tr>
+                        <th class="table-grid">Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>SubTotal</th>
+                        <th></th>
+                    </tr>
+                    {% for l in lignes %}
+                    <tr class="cart-header">
+                        <td class="ring-in"><a href="{{ path('afficher_produit_details',{'id':l.Produit.id}) }}" class="at-in"><img src="{{ asset('images/' ~ l.Image) }}" class="img-responsive" alt=""></a>
+                            <div class="sed">
+                                <h5><a href="{{ path('afficher_produit_details',{'id':l.Produit.id}) }}">{{ l.produit.libelle }}</a></h5>
+                                <p>{{ l.produit.description }} </p>
+
+                            </div>
+                            <div class="clearfix"> </div>
+
+                        <td>{{ l.prix }}</td>
+                        <td>{{ l.quantite}}</td>
+                        <td class="item_price">{{ l.prix*l.quantite}}</td>
+                        <td><a href="{{ path('supprimer_panier',{'id':l.id}) }}" class='btn btn-default'>X</a></td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="produced">
+            <a href="{{ path('commander',{'id':1}) }}" class="hvr-skew-backward">Procéder à la Commande</a>
+        </div>
+    </div>
+</div></br>
+    </br>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+{% block content %}
+
+<div class="product">
+
+    <div class="container">
+        <div class="col-md-9">
+            <div class="mid-popular">
+                {% for a in animals %}
+                <div class="col-md-4 item-grid1 simpleCart_shelfItem">
+                    <div class=" mid-pop">
+                        <div class="pro-img">
+                            <img src="{{ asset('images/' ~ a.image ) }}  "  class="img-responsive" alt="">
+                            <div class="zoom-icon ">
+                                <a class="picture" href="{{ asset('images/' ~ a.image) }}" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                                <a href="{{ path('afficher_front_animal_detail',{'id':a.id}) }}"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                            </div>
+                        </div>
+                        <div class="mid-1">
+                            <div class="women">
+                                <div class="women-top">
+                                    <span>{{  a.nom }}</span>
+                                        <h6><a href="">{{  a.race }}</a></h6>
+                                        </div>
+                                        <div class="img item_add">
+                                        <a href="#"><img src="../../../../../web/images/ca.png" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        </div>
+                                        <div class="mid-2">
+                                        <p ><em class="item_price">{{  a.demande }} Demande </em></p>
+                                        <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        </div>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        {% endfor %}
+
+ <div class="clearfix"></div>
+
+                </div>
+            </div>
+        <div class="col-md-3 product-bottom">
+            <!--categories-->
+            <form id="recherche" class="navbar-form navbar-right" method="post" action="{{ path('recherchefront') }}">
+            <div class=" rsidebar span_1_of_left">
+                <h4 class="cate">Carectéristique</h4>
+                <ul class="menu-drop">
+                    <li class="item1"><a href="#"><h3>Race </h3></a>
+                        <ul class="cute">
+                          <li>  <label class="checkbox"><input type="checkbox" name="espece" value="chat"><i></i> Chat</label></li>
+                            <li>  <label class="checkbox"><input type="checkbox" name="espece" value="chien"><i></i> Chien</label></li>
+                        </ul>
+                    </li>
+                    <li class="item2"><a href="#"><h3>Sexe </h3></a>
+                        <ul class="cute">
+                            <li>  <label class="checkbox"><input type="checkbox" name="sexe" value="male"><i></i> Male</label></li>
+                            <li>  <label class="checkbox"><input type="checkbox" name="sexe" value="femelle"><i></i> Femelle</label></li>
+                        </ul>
+                    </li>
+                    <li class="item3"><a href="#"><h3>Age</h3></a>
+                        <ul class="cute">
+                            <li>  <label class="checkbox"><input type="checkbox" name="age" value="junior"><i></i> Junior</label></li>
+                            <li>  <label class="checkbox"><input type="checkbox" name="sexe" value="adulte"><i></i> Adulte</label></li>
+                            <li>  <label class="checkbox"><input type="checkbox" name="sexe" value="senior"><i></i> Senior</label></li>
+                        </ul>
+                    </li>
+                    <li class="item4"><a href="#"><h3>Taille</h3></a>
+                        <ul class="cute">
+                            <li>  <label class="checkbox"><input type="checkbox" name="taille" value="petit"><i></i> Petit</label></li>
+                            <li>  <label class="checkbox"><input type="checkbox" name="taille" value="moyen"><i></i> Moyen</label></li>
+                            <li>  <label class="checkbox"><input type="checkbox" name="taille" value="grand"><i></i> Grand</label></li>
+                        </ul>
+                    </li>
+                    <li class="item5"><a href="#"><h3>Region</h3></a>
+                        <ul class="cute">
+                            <li>  <label class="checkbox"><input type="checkbox" name="region" value="tunis"><i></i> Tunis</label></li>
+                            <li>  <label class="checkbox"><input type="checkbox" name="region" value="sousse"><i></i> Sousse</label></li>
+                            <li>  <label class="checkbox"><input type="checkbox" name="region" value="hammamet"><i></i> Hammamet</label></li>
+                            <li>  <label class="checkbox"><input type="checkbox" name="region" value="bizerte"><i></i> Bizerte</label></li>
+                        </ul>
+                    </li>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> <h4>Rechercher</h4></button>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                $(function() {
+                    var menu_ul = $('.menu-drop > li > ul'),
+                        menu_a  = $('.menu-drop > li > a');
+                    menu_ul.hide();
+                    menu_a.click(function(e) {
+                        e.preventDefault();
+                        if(!$(this).hasClass('active')) {
+                            menu_a.removeClass('active');
+                            menu_ul.filter(':visible').slideUp('normal');
+                            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+                        } else {
+                            $(this).removeClass('active');
+                            $(this).next().stop(true,true).slideUp('normal');
+                        }
+                    });
+
+                });
+            </script>
+            </form>
+        </div>
+
+    </div>
+
+
+<!--//content-->
+
+{% endblock %}

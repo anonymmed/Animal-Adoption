@@ -1,0 +1,28 @@
+<form>
+
+    <input type="text" name="nom" id="nomid">
+</form>
+<table border="3" id="table">
+    <tr style="color: #F5871F"><td>id</td><td>Nom</td><td>Race</td><td>Sexe</td><td>Age</td><td>Id refuge</td></tr>
+
+</table>
+<script src="{{ asset('jquery-3.3.1.min.js') }}"></script>
+<script>
+    $('#nomid').keyup(function () {
+        var input=$('#nomid').val();
+        $.ajax({
+            url:"{{ path('rechercheAjax') }}",
+            type:'Post',
+            data:{'nom':input},
+            success:function (data) {
+                //console.log(data);
+                $.each(data,function (i,e) {
+                    $('#table').append("<tr><td>"+e.id+"</td><td>"+e.nom+"</td><td>"+e.race+"</td><td>"+e.sexe+"</td><td>"+e.age+"</td><td>"+e.idRefuge.id+"</td></tr>");
+                })
+            }
+        })
+
+
+    });
+
+</script>

@@ -1,0 +1,67 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+{% block banner %}
+    <img src="{{ asset('images/PetSitter.png') }}">
+{% endblock %}
+{% block content %}
+
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {{ flashMessage }}
+    {% endfor %}
+
+    <div class="product">
+
+        <div class="container">
+            <div class="col-md-9">
+                <div class="mid-popular">
+                    {% for p in petsitters  %}
+                        <div class="col-md-4 item-grid1 simpleCart_shelfItem">
+
+                            <div class=" mid-pop">
+                                <div class="pro-img">
+
+                                </div>
+                                <div class="mid-1">
+                                    <div class="pro-img">
+                                        <img src="{{ asset('images/saly.jpg') }}" class="img-responsive" alt="">
+
+                                        <div class="zoom-icon ">
+                                            <a class="picture" href="{{ asset('images/saly.jpg') }}" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                                            <a href="{{ path('afficher_single_petsitter',{'id':p.id}) }}"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="women">
+                                       <h6> <span>{{  p.nom }}</span></h6>
+                                        <div class="women-top">
+                                            <a href="{{ path('afficher_single_petsitter',{'id':p.id}) }}" class="btn btn-default"><span>Voir en detail</span></a>
+                                        </div>
+                                        <div class="img item_add">
+                                            <a href="{{ path('afficher_single_petsitter',{'id':p.id}) }}"><img src="{{ asset('images/ca.png') }}" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="mid-2">
+                                        <div class="block">
+                                            <div class="starbox small ghosting"> </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!--//content-->
+
+{% endblock %}
+

@@ -1,0 +1,24 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <div class="login">
+        <center><h2>{% trans from 'FOSMessageBundle' %}send_new{% endtrans %}</h2></center>
+        <br>
+        <div class="col-md-6 login-do">
+            <form action="{{ url('fos_message_thread_new') }}" method="post">
+                <div class="col-md-6 login-do">
+                    <div class="login-mail">
+                        {{ form_widget(form) }}
+                    </div>
+                        <label class="hvr-skew-backward">
+                             <input type="submit" />
+                        </label>
+                </div>
+            </form>
+         </div>
+    </div>
+</div>
+    <br>
+
+{% endblock %}

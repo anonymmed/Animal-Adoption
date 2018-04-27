@@ -1,0 +1,25 @@
+<style type="text/css">
+    table{border-collapse: collapse;width: 50%;font-size: 10pt;} table,th,td{border:1px solid #cfbfa6;} th{background:#cfbfa6;color: white;}
+</style>
+<table id="table" class="table table-bordered table-hover">
+    <thead>
+    <th>Id</th>
+    <th>Libelle</th>
+    <th>Adresse</th>
+    <th>Telephone</th>
+    <th>Description</th>
+
+    </thead>
+    <tbody id="tbody">
+    {% for centre in centresD  %}
+        <tr><td>{{  centre.id}}</td>
+            <td>{{  centre.libelle }}</td>
+            <td>{{  centre.adresse }}</td>
+            <td>{{  centre.tel }}</td>
+            <td>{{  centre.description }}</td>
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>

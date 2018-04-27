@@ -1,0 +1,69 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+
+{% block  content%}
+    <a href="{{ path('ajouter_centre_toilettage') }}" class="btn btn-default"><span>Ajouter</span></a>
+
+    <center><h1>Liste Des Centres De Toilettage</h1>
+    <div class="box-body">
+    <form>
+        <input type="text" name="mot" id="mot" placeholder="chercher">
+    </form>
+
+
+    <style type="text/css">
+        table{border-collapse: collapse;width: 40%;font-size: 10pt;} table,th,td{border:1px solid rgb(88, 111, 45);} th{background:rgb(88, 111, 45);color: white;}
+    </style>
+
+    <table id="example2" class="table table-bordered table-hover">
+
+        <th>Id</th>
+        <th>Libelle</th>
+        <th>Adresse</th>
+        <th>Telephone</th>
+        <th>Description</th>
+        <th>Supprimer</th>
+        <th>Modifier</th>
+        <th> image </th>
+
+
+        </thead>
+        <tbody id="tbody">
+        {% for centre in centresT  %}
+            <tr><td>{{  centre.id}}</td>
+                <td>{{  centre.libelle }}</td>
+                <td>{{  centre.adresse }}</td>
+                <td>{{  centre.tel }}</td>
+                <td>{{  centre.description }}</td>
+
+
+                <td><a href="{{ path('supprimer_centre_toilettage',{'id':centre.id}) }}" class='btn btn-default'>X</a></td>
+                <td><a href="{{ path('modifier_centre_toilettage',{'id':centre.id}) }}" class='btn btn-default'><i class='fa fa-pencil-square-o'></i></a> </td>
+                <td> <img src="{{ asset(centre.image )}}" height="70" width="70"></td>
+
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script>
+        $('#mot').keyup(function () {
+            var input=$('#mot').val();
+            $.ajax({
+                url:"{{ path('searchAjax') }}",
+                type:'Post',
+                data:{'mot':input},
+                success:function (data) {
+                    //console.log(data);
+                    $.each(data,function (i,e) {
+                        $('#tbody').html("<table id='#tbody'><tr><td>"+e.id+"</td><td>"+e.libelle+"</td><td>"+e.adresse+"</td><td>"+e.tel+"</td><td>"+e.description+"</td></tr></table>");
+                    })
+                }
+            })
+
+        });
+
+    </script>
+
+{% endblock %}

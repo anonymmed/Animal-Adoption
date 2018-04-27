@@ -1,0 +1,24 @@
+template_homepage:
+    path:     /
+    defaults: { _controller: TemplateBundle:Default:index }
+
+home:
+    path:     /home
+    defaults: { _controller: TemplateBundle:Template:layout }
+
+admin:
+    path:     /admin/home
+    defaults: { _controller: TemplateBundle:Template:admin }
+
+adoptionPage:
+    path:     /admin/adoptionPage
+    defaults: { _controller: TemplateBundle:Template:adoptionPage }
+
+accessoirePage:
+    path:     /admin/accessoirePage
+    defaults: { _controller: TemplateBundle:Template:accessoirePage }
+
+alimentPage:
+    path:     /admin/alimentPage
+    defaults: { _controller: TemplateBundle:Template:alimentPage }
+

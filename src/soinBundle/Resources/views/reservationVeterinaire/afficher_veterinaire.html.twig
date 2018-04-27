@@ -1,0 +1,40 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+
+{% block  content%}
+
+    <a href="{{ path('PDF') }}" class="btn btn-warning"><span> PDF  </span></a>
+
+    <center><h1>Liste Des veterinaires </h1>
+    <div class="box-body">
+    <style type="text/css">
+        table{border-collapse: collapse;width: 40%;font-size: 10pt;} table,th,td{border:1px solid rgb(88, 111, 45);} th{background:rgb(88, 111, 45);color: white;}
+    </style>
+    <table id="example2" class="table table-bordered table-hover">
+
+        <th>Id</th>
+        <th>Nom  veterinaire </th>
+        <th>Prenom </th>
+        <th>Adresse</th>
+        <th>Telephone </th>
+        <th>Supprimer</th>
+
+
+        </thead>
+        <tbody>
+        {% for vet in veterinaires  %}
+            <tr><td>{{  vet.id}}</td>
+                <td>{{  vet.nom }}</td>
+                <td>{{  vet.prenom }}</td>
+                <td>{{  vet.adresse }}</td>
+                <td>{{  vet.telephone }}</td>
+
+                <td><a href="{{ path('supprimer_veterinaire',{'id':vet.id}) }}" class='btn btn-default'>X</a></td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
+
+

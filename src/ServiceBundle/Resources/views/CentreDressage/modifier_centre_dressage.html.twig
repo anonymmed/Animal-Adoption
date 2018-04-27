@@ -1,0 +1,14 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+{% block content %}
+    <center><h1>Modifier Un Centre De Dressage</h1></br>
+    <fieldset style="width: 50%">
+                <form method="POST">
+                    Libelle: <input type="text" name="libelle" value="{{ centreD.libelle }}"><br>
+                    Adresse: <input type="text" name="adresse" value="{{ centreD.adresse }}"><br>
+                    Telephone: <input type="text" name="tel" value="{{ centreD.tel }}"><br>
+                    Description: <input type="text" name="description" value="{{ centreD.description }}"><br>
+                    <input type="submit" value="Modifier">
+                </form>
+        </fieldset>
+    </center>
+{% endblock %}

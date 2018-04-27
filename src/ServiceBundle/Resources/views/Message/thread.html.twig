@@ -1,0 +1,30 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+
+{% block content %}
+    <br>
+<center>
+    <h2>{% trans from 'FOSMessageBundle' %}reply{% endtrans %}</h2> <br>
+
+    {% for message in thread.messages %}
+
+    <div class="messenger_thread_message">
+        <div class="messenger_thread_message_info">
+            {% trans with {'%sender%': message.sender|e, '%date%': message.createdAt|date} from 'FOSMessageBundle' %}message_info{% endtrans %}
+        </div><br>
+
+        <div class="messenger_thread_message_body" id="message_{{ message.id }}">
+            {{ message.body }}
+        </div><br>
+    </div>
+{% endfor %}
+
+
+<form action="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}" method="post">
+    {{ form_widget(form) }}
+
+    <input type="submit" >
+</form>
+</center>
+    <br>
+    <br>
+{% endblock %}

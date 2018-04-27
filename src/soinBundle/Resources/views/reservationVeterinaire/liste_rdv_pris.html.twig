@@ -1,0 +1,40 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+
+{% block  content%}
+    </br>
+    </br>
+    <center><h1> Les rendez-vous que vous avez pris </h1> </center>
+    </br>
+    </br>
+    <div class="box-body">
+    <style type="text/css">
+        table{border-collapse: collapse;width: 40%;font-size: 10pt;} table,th,td{border:1px solid rgb(88, 111, 45);} th{background:rgb(88, 111, 45);color: white;}
+    </style>
+    <table id="example2" class="table table-bordered table-hover">
+
+        <th>id</th>
+        <th>description</th>
+        <th>date debut </th>
+        <th>date fin </th>
+        <th> Modifier  </th>
+        <th> Annuler mon rendez-vous </th>
+
+
+        </thead>
+        <tbody>
+        {% for monRDV in rdv  %}
+            <tr>
+                <td>{{  monRDV.id}}</td>
+                <td>{{  monRDV.description }}</td>
+                <td>{{  monRDV.getDateDebut|date('Y-m-d H:i:s') }}</td>
+                <td>{{  monRDV.getDateFin|date('Y-m-d H:i:s') }}</td>
+                <td><a href="{{ path('modifierMonRdv',{'id':monRDV.id , 'id_user':app.user.id}) }}" class="btn btn-success">X</a></td>
+                <td><a href="{{ path('supprimerMonRdv',{'id':monRDV.id , 'id_user':app.user.id}) }}" class="btn btn-success">X</a></td>
+
+
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

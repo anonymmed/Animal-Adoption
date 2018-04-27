@@ -1,0 +1,11 @@
+services:
+    Service.image_uploader:
+            class: ServiceBundle\ImageUpload
+            arguments: ['%images_directory%']
+
+    Service.doctrine_image_listener:
+            class: ServiceBundle\EventListener\UploadImageListener
+            arguments: ['@Service.image_uploader']
+            tags:
+                  - { name: doctrine.event_listener, event: prePersist }
+                  - { name: doctrine.event_listener, event: preUpdate }

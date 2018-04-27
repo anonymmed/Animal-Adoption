@@ -1,0 +1,71 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+
+{% block  content%}
+    <a href="{{ path('ajouter_produit') }}" class="btn btn-default"><span>Ajouter</span></a>
+    <a href="{{ path('afficher_statistique') }}" class="btn btn-default"><span>Statistiques</span></a>
+
+    <center><h1>Liste Des Aliments</h1>
+    <form>
+
+        <input type="text" name="mot" id="mot" placeholder="chercher">
+    </form>
+    <div class="box-body">
+    <style type="text/css">
+        table{border-collapse: collapse;width: 40%;font-size: 10pt;} table,th,td{border:1px solid rgb(88, 111, 45);} th{background: rgb(74, 60, 219);color: #ffffff;}
+    </style>
+    <table id="example2" class="table table-bordered table-hover">
+
+        <th>Id</th>
+        <th>Libelle</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th>Categorie</th>
+        <th>Animal</th>
+        <th>Url_Image</th>
+        <th>Quantite</th>
+        <th>Supprimer || Modifier</th>
+
+
+
+        </thead>
+        <tbody id="tbody">
+        {% for p in produits %}
+            <tr><td>{{  p.id }}</td>
+                <td>{{  p.libelle }}</td>
+                <td>{{  p.description }}</td>
+                <td>{{  p.prix }}</td>
+                <td>{{  p.categorie.libelle }}</td>
+                <td>{{  p.animal }}</td>
+                <td>{{ asset('images/' ~ p.Image) }}</td>
+                <td>{{  p.quantite }}</td>
+
+
+                <td><a href="{{ path('supprimer_produit',{'id':p.id}) }}" class='btn btn-default'>X</a><a href="{{ path('modifier_produit',{'id':p.id}) }}" class='btn btn-default'><i class='fa fa-pencil-square-o'></i></a></td>
+                <td> </td>
+
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script>
+        $('#mot').keyup(function () {
+            var input=$('#mot').val();
+            $.ajax({
+                url:"{{ path('searchAjax') }}",
+                type:'Post',
+                data:{'mot':input},
+                success:function (data) {
+                    //console.log(data);
+                    $.each(data,function (i,e) {
+                        $('#tbody').html("<table id='#tbody'><tr><td>"+e.id+"</td><td>"+e.libelle+"</td><td>"+e.description+"</td><td>"+e.prix+"</td><td>"+e.categorie.libelle+"</td><td>"+e.animal+"</td><td>"+e.Image+"</td><td>"+e.quantite+"</td></tr></table>");
+                    })
+                }
+            })
+
+        });
+
+    </script>
+
+{% endblock %}

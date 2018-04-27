@@ -1,0 +1,45 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+{% block  content%}
+    <br><br>
+
+    <form action="{{ path('participer') }}">
+        <div class="single">
+            <div class="container">
+                <div class="col-md-9">
+                    <div class="col-md-5 grid">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="images/si.jpg">
+                                    <div class="thumb-image"> <img src="" data-imagezoom="true" class="img-responsive"> </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-7 single-top-in">
+                        <div class="span_2_of_a1 simpleCart_shelfItem">
+                            <h3></h3>
+
+                            <div class="price_single">
+                                <span class="reducedfrom item_price">
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <h4 class="quick"> Bonjours  {{ app.user.username}}  voulez vous  participer au  concour {{ concour.description}} prevue pour  {{ concour.date | date }}</h4>
+                            <p class="quick_desc">
+                            <div class="wish-list">
+
+                                <input type="hidden" value="{{ concour.id }}" name="idc">
+                                <input type="hidden" value="{{ app.user.id }}" name="idp">
+                                <input type="submit" class="add-to item_add hvr-skew-backward" value="Participer">
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br><br>
+
+{% endblock %}

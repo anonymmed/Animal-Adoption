@@ -1,0 +1,18 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+{% block content %}
+    <center><h1>Modifier Un Centre De Dressage</h1></br>
+        <fieldset style="width: 50%">
+            <form method="POST">
+                Nom: <input type="text" name="Nom" value="{{ animal.nom }}"><br>
+                Espece: <input type="text" name="Espece" value="{{ animal.espece }}"><br>
+                Race: <input type="text" name="Race" value="{{ animal.race }}"><br>
+                Sexe: <input type="text" name="Sexe" value="{{ animal.sexe }} "><br>
+                Age: <input type="text" name="Age" value="{{ animal.age }} "><br>
+                Taille: <input type="text" name="Taille" value="{{ animal.taille }}"><br>
+                Region: <input type="text" name="Region" value="{{ animal.region }}"><br>
+                Description: <input type="text" name="Description" value="{{  animal.description }}"><br>
+                <input type="submit" value="Modifier">
+            </form>
+        </fieldset>
+    </center>
+{% endblock %}

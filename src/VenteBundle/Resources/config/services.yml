@@ -1,0 +1,13 @@
+services:
+    vente.image_uploader:
+                class: VenteBundle\Entity\ImageUpload
+                arguments: ['%images_directory%']
+    resto.doctrine_image_listener:
+            class: VenteBundle\EventListener\ImageUploadListener
+            arguments: ['@vente.image_uploader']
+            tags:
+                - { name: doctrine.event_listener, event: prePersist }
+                - { name: doctrine.event_listener, event: preUpdate }
+    payment.plugin.paypal:
+            class: VenteBundle\Entity\PaypalPlugin
+            tags: [{name: payment.plugin}]

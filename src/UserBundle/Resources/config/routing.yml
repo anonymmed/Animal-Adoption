@@ -1,0 +1,9 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: TemplateBundle:Template:layout }
+
+
+
+auth:
+    path:     /auth/{username}
+    defaults: { _controller: UserBundle:User:auth }

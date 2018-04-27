@@ -1,0 +1,33 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+
+{% block  content%}
+
+    <center><h1>Vos rendez-vous</h1>
+
+    <div class="box-body">
+    <style type="text/css">
+        table{border-collapse: collapse;width: 40%;font-size: 10pt;} table,th,td{border:1px solid rgb(88, 111, 45);} th{background:rgb(88, 111, 45);color: white;}
+    </style>
+    <table id="example2" class="table table-bordered table-hover">
+
+        <th>id</th>
+        <th>description</th>
+        <th>date debut </th>
+        <th>date fin </th>
+
+
+        </thead>
+        <tbody>
+        {% for rdvv in rdv  %}
+            <tr>
+                <td>{{  rdvv.id}}</td>
+                <td>{{  rdvv.description }}</td>
+                <td>{{  rdvv.getDateDebut|date('Y-m-d H:i:s') }}</td>
+                <td>{{  rdvv.getDateFin|date('Y-m-d H:i:s') }}</td>
+
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

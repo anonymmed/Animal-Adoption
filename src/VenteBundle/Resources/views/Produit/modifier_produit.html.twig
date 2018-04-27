@@ -1,0 +1,20 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+{% block content %}
+    <center><h1>Modifier Un Centre De Dressage</h1></br>
+        <fieldset style="width: 50%">
+            <form method="POST">
+                Libelle: <input type="text" name="libelle" value="{{ produit.libelle }}"><br>
+                Description: <input type="text" name="description" value="{{ produit.description }}"><br>
+                Quantite: <input type="text" name="quantite" value="{{ produit.quantite }}"><br>
+                Animal: <select name="animal">
+                    <option >Chat</option>
+                    <option >Chien</option>
+                    <option >Poisson</option>
+                    <option >Oiseau</option>
+                </select><br>
+                Prix: <input type="text" name="prix" value="{{ produit.prix }}"><br>
+                <input type="submit" value="Modifier">
+            </form>
+        </fieldset>
+    </center>
+{% endblock %}

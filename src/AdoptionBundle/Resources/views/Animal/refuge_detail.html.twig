@@ -1,0 +1,47 @@
+
+{% embed '@Template/Layout/single.html.twig' %}
+    {% block product %}
+        {% for refuge in refuges %}
+    <div class="single">
+<div class="container">
+    <div class="col-md-9">
+        <div class="col-md-5 grid">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li data-thumb="images/si.jpg">
+                        <div class="thumb-image"> <img src="{{ asset('images/refuge1.jpg') }}" data-imagezoom="true" class="img-responsive"> </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-7 single-top-in">
+            <div class="span_2_of_a1 simpleCart_shelfItem">
+               <!--Titre--> <h3>{{ refuge.libelle }}</h3>
+                <!--Sous Title--> <p class="in-para">Libelle {{ refuge.libelle }}<br> Adresse {{ refuge.adresse }} <br> Numero de téléphone {{ refuge.num }} <br> Region {{ refuge.region }} <br> Email {{ refuge.email }}  </p>
+                <div class="price_single">
+                    <span class="reducedfrom item_price" >Aimez et partagez notre page facebook !</span>
+                    <!--Prix-->    <span class="reducedfrom item_price">{{ socialButtons( {'googleplus':false, 'twitter':false, 'linkedin':false, 'pinterest':false } ) }}</span>
+                    <div class="clearfix"></div>
+                </div>
+                 <h4 class="quick">Description</h4>
+                <!--Description--> <p class="quick_desc">{{ refuge.description }} </p>
+
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+        <div class="clearfix"> </div>
+        <!---->
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!---->
+    </div>
+    <!----->
+
+
+{% endfor %}
+        {% endblock %}
+        {% endembed %}
+

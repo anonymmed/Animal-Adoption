@@ -1,0 +1,24 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+
+
+
+                    {% block content %}
+                        <h1>Welcome to the concours:create page</h1>
+                            <fieldset style="width: 50%"  >
+                                {{ form_start(form) }}
+
+                                Descreption :{{ form_widget(form.description) }}</br>
+                                Date: {{ form_widget(form.date) }}</br>
+                                nb: {{ form_widget(form.nbredeplaces) }}</br>
+                                {{ form_widget(form.ajouter) }}</br>
+                                {{ form_end(form) }}
+                            </fieldset>
+                        </center>
+                   <center>    <a href="{{ path('read') }}" class="btn btn-default"><span>Lister</span></a>  </center>
+                    {% endblock %}
+
+
+
+
+
+

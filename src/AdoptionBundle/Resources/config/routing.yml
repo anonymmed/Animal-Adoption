@@ -1,0 +1,79 @@
+ajouter_animal:
+    path:     /animal/ajouter
+    defaults: { _controller: AdoptionBundle:Animal:ajouter }
+
+rechercher_animal:
+        path:     /animal/rechercher
+        defaults: { _controller: AdoptionBundle:Animal:rechercher }
+
+supprimer_animal:
+    path:     /animal/supprimer{id}
+    defaults: { _controller: AdoptionBundle:Animal:supprimer }
+
+afficher_animal:
+    path:     /animal/afficher
+    defaults: { _controller: AdoptionBundle:Animal:afficher }
+
+afficher_front_animal:
+    path:     /animal/afficherfront
+    defaults: { _controller: AdoptionBundle:Animal:afficherFront }
+
+afficher_front_animal_detail:
+    path:     /animal/afficherfrontDetail/{id}
+    defaults: { _controller: AdoptionBundle:Animal:afficherAnimalDetail }
+
+modifier_animal:
+    path:     /animal/modifier{id}
+    defaults: { _controller: AdoptionBundle:Animal:modifier }
+
+ajouter_refuge:
+    path:     refuge/ajouter
+    defaults: { _controller: AdoptionBundle:Refuge:ajouter }
+
+supprimer_refuge:
+    path:     /refuge/supprimer{id}
+    defaults: { _controller: AdoptionBundle:Refuge:supprimer }
+
+modifier_refuge:
+    path:     /refuge/modifier{id}
+    defaults: { _controller: AdoptionBundle:Refuge:modifier }
+
+afficher_refuge:
+    path:     /refuge/afficher
+    defaults: { _controller: AdoptionBundle:Refuge:afficher }
+
+rechercher_refuge:
+    path:     /refuge/rechercher
+    defaults: { _controller: AdoptionBundle:Refuge:rechercher }
+
+adopter:
+    path:     adopter/{id}
+    defaults: { _controller: AdoptionBundle:Animal:adopter }
+
+imprimerPDF:
+    path:     /imprimer
+    defaults: { _controller: AdoptionBundle:Animal:imprimerPDF }
+
+rechercheAjax:
+    path:     /animal/rechercheajax
+    defaults: { _controller: AdoptionBundle:Animal:rechercheAjax }
+
+test:
+    path:     /animal/test
+    defaults: { _controller: AdoptionBundle:Animal:test }
+
+recherchefront:
+    path:     /animal/rechercherfront
+    defaults: { _controller: AdoptionBundle:Animal:recherchefront }
+
+changerEtat:
+    path:     /animal/changerEtat/{id}
+    defaults: { _controller: AdoptionBundle:Animal:changerEtat }
+
+setnonadopter:
+    path:     /animal/setnonadopter/{id}
+    defaults: { _controller: AdoptionBundle:Animal:setnonadopter }
+
+afficherdetailRefuge:
+    path:     /refuge/afficherrefugeDetail/{id}
+    defaults: { _controller: AdoptionBundle:Refuge:afficherRefugeDetail }

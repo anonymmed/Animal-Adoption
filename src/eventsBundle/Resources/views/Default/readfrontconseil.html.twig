@@ -1,0 +1,49 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+{% block banner %}
+{% endblock %}
+{% block content %}
+
+    <div class="product">
+
+        <div class="container">
+            <div class="col-md-9">
+                <div class="mid-popular">
+                    {% for conseil in conseils  %}
+                        <div class="col-md-4 item-grid1 simpleCart_shelfItem">
+
+                            <div class=" mid-pop">
+                                <div class="pro-img">
+                                </div>
+                                <div class="mid-1">
+                                    <div class="pro-img">
+                                        <img src="" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="women">
+                                        <h6> <span>{{conseil.titre }}</span></h6>
+                                        <div class="clearfix"></div>
+                                        <h6> <span>{{conseil.text }}</span></h6>
+                                    </div>
+                                    <div class="mid-2">
+                                        <div class="block">
+                                            <div class="starbox small ghosting"> </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!--//content-->
+
+{% endblock %}

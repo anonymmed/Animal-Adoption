@@ -1,0 +1,101 @@
+ajouter_produit:
+    path:     /admin/ajouterProduit
+    defaults: { _controller: VenteBundle:Produit:ajouterProduit }
+
+modifier_produit:
+    path:     /admin/modifierProduit{id}
+    defaults: { _controller: VenteBundle:Produit:modifierProduit }
+
+supprimer_produit:
+    path:     /admin/supprimerProduit{id}
+    defaults: { _controller: VenteBundle:Produit:supprimerProduit }
+
+afficher_produits:
+    path:     /admin/afficherProduits
+    defaults: { _controller: VenteBundle:Produit:afficherProduit }
+
+afficher_front_produit:
+    path:     /Produits
+    defaults: { _controller: VenteBundle:Produit:afficherFrontProduit }
+
+afficher_produit_json:
+    path:     /produits
+    defaults: { _controller: VenteBundle:Produit:afficherProduitjson }
+
+ajouter_categorie:
+    path:     /admin/ajouterCategorie
+    defaults: { _controller: VenteBundle:Categorie:ajoutercategorie }
+
+modifier_categorie:
+    path:     /admin/modifierCategorie{id}
+    defaults: { _controller: VenteBundle:Categorie:modifiercategorie }
+
+supprimer_categorie:
+    path:     /admin/supprimerCategorie{id}
+    defaults: { _controller: VenteBundle:Categorie:supprimerCategorie }
+
+afficher_categorie:
+    path:     /admin/afficherCategorie
+    defaults: { _controller: VenteBundle:Categorie:afficherCategorie }
+
+afficher_produit_details:
+    path:     /afficherProduitDetail/{id}
+    defaults: { _controller: VenteBundle:Produit:afficherProduitDetail }
+
+afficher_statistique:
+    path:     /admin/afficherstatistique
+    defaults: { _controller: VenteBundle:Produit:statistique }
+
+ajouter_panier:
+    path:     /ajouterPanier
+    defaults: { _controller: VenteBundle:Produit:ajouterPanier }
+
+ajouter_panier_json:
+    path:     /ajouterPanier/{id_produit}/{quantite}/{id_client}
+    defaults: { _controller: VenteBundle:Produit:ajouterPanierjson }
+
+total_panier_json:
+    path:     /Panier/total/{id}
+    defaults: { _controller: VenteBundle:Produit:totalpanierjson }
+
+
+commander_json:
+    path:     /Panier/commander/{id}/{amount}
+    defaults: { _controller: VenteBundle:Produit:commanderjson }
+
+supprimer_panier:
+    path:     /supprimerPanier/{id}
+    defaults: { _controller: VenteBundle:Produit:supprimerPanier }
+
+afficher_panier:
+    path:     /afficherPanier
+    defaults: { _controller: VenteBundle:Produit:AfficherPanier }
+
+afficher_panier_json:
+    path:     /panier
+    defaults: { _controller: VenteBundle:Produit:AfficherPanierjson }
+
+commander:
+    path:     /commander/{id}
+    defaults: { _controller: VenteBundle:Commande:commander}
+
+
+paypal:
+    path:     /commander/{id}/show
+    defaults: { _controller: VenteBundle:Commande:show}
+
+createPayment:
+    path:     /commande/{id}/payment/create
+    defaults: {_controller: VenteBundle:Commande:paymentCreate}
+
+successPayment:
+    path:     /commande/{id}/payment/complete
+    defaults: {_controller: VenteBundle:Commande:paymentComplete}
+
+cancelPayment:
+    path:     /commande/{id}/payment/cancel
+    defaults: {_controller: VenteBundle:Commande:paymentCancel}
+
+searchAjax:
+    path:     /searchAjax
+    defaults: {_controller: VenteBundle:Produit:searchAjax}

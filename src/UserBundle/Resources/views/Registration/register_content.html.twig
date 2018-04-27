@@ -1,0 +1,15 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container">
+<div class="login">
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+<div class="col-md-6 login-do">
+    <div class="login-mail">
+        {{ form_widget(form) }}
+    </div>
+                    <label class="hvr-skew-backward">
+                    <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                    </label>
+</div>
+{{ form_end(form) }}
+</div>
+</div>

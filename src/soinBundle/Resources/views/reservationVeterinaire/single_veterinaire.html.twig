@@ -1,0 +1,51 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+{% block  content%}
+    <br><br>
+
+
+        <div class="single">
+            <div class="container">
+                <div class="col-md-9">
+                    <div class="col-md-5 grid">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="images/si.jpg">
+                                    <div class="thumb-image"> <img src="{{ asset('images/vet.jpg') }}" data-imagezoom="true" class="img-responsive"> </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-7 single-top-in">
+                        <div class="span_2_of_a1 simpleCart_shelfItem">
+                            <h3>{{  veterinaire.nom }}</h3>
+
+                            <h4 class="quick">Description:</h4>
+                            <p class="quick_desc"> Je m'appelle {{  veterinaire.nom }} {{  veterinaire.prenom }} mon cabinet se situe à {{  veterinaire.adresse}}
+                                prendre un rendez vous reserver sur la platforme ou appelé nous sur le : {{  veterinaire.telephone }}
+                            </p>
+                            <iframe width="500px" height="400"
+                                                                src="http://www.citymaps.ie/create-google-map/map.php?width=500px%&amp;height=400&amp;hl=en&amp;coord={{ veterinaire.latitude }},{{ veterinaire.longitude }}&amp;q={{ veterinaire.adresse }} +({{ veterinaire.nom }})&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+                                                                frameborder="0" scrolling="no" marginheight="0"
+                                                                marginwidth="0"></iframe>
+                            <div class="wish-list">
+
+                                    {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+
+                                <a href="{{ path('reserver_veterinaire',{'id':veterinaire.id}) }}">Réservé</a>
+
+                                    {% endif %}
+
+                                <div class="clearfix"> </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br><br>
+
+{% endblock %}
+

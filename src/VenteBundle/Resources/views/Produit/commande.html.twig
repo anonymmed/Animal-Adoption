@@ -1,0 +1,22 @@
+{% extends '@Template/Layout/single.html.twig' %}
+{% block product %}
+    <div class="container">
+
+<div class="page-header">
+<div class="row">
+<div class="panel panel-default">
+    <div class="panel-heading" style="background-color: #cfbfa6">
+        <h4 class="panel-title" >Total Commande: € {{ order.amount }}</h4>
+    </div>
+    <div class="panel-body">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" class="btn btn-sm btn-default" style="background-color: #F67777;color: #ffffff"  value="Payer : {{ order.amount }}" />
+        {{ form_end(form) }}
+    </div>
+</div>
+</div><!-- /.col-sm-4 -->
+    </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<center>
+<table border="3">
+<thead>
+    <th>Id</th>
+    <th>Nom  veterinaire </th>
+    <th>Prenom </th>
+    <th>Adresse</th>
+    <th>Telephone </th>
+
+
+    </thead>
+    <tbody>
+    {% for vet in veterinaires  %}
+        <tr><td>{{  vet.id}}</td>
+            <td>{{  vet.nom }}</td>
+            <td>{{  vet.prenom }}</td>
+            <td>{{  vet.adresse }}</td>
+            <td>{{  vet.telephone }}</td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+    </center>

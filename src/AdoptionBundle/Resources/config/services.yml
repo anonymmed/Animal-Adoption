@@ -1,0 +1,11 @@
+services:
+    adoption.image_uploader:
+            class: AdoptionBundle\ImageUpload
+            arguments: ['%images_directory%']
+
+    adoption.doctrine_image_listener:
+            class: AdoptionBundle\EventListener\UploadImageListener
+            arguments: ['@adoption.image_uploader']
+            tags:
+                - { name: doctrine.event_listener, event: prePersist }
+                - { name: doctrine.event_listener, event: preUpdate }

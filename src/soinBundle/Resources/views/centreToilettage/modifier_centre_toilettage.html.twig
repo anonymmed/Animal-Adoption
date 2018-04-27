@@ -1,0 +1,30 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-3">
+            <div class="text-center">
+                <h1 xmlns="http://www.w3.org/1999/html">Modifier centre </h1>
+
+                {{ form_start(form) }}
+
+                {{ form_widget(form.libelle ,{'attr':{'class':'form-control'}} ) }} </br>
+                {{ form_widget(form.adresse,{'attr':{'class':'form-control'}} ) }}</br>
+                {{ form_widget(form.tel,{'attr':{'class':'form-control'}} ) }}</br>
+                {{ form_widget(form.description,{'attr':{'class':'form-control'}} ) }} </br>
+                {{ form_widget(form.image) }} </br>
+                {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}, 'label': 'Modifier'}  ) }} </br>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <hr>
+        <div class="col-md-offset-8 col-md-3">
+            <a href="{{ path('afficher_centre_toilettage') }}"
+               class="btn btn-warning"><span>Retourner vers la liste des centres </span></a>
+        </div>
+    </div>
+
+    {% endblock %}

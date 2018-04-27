@@ -1,0 +1,21 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+
+
+{% block content %}
+    <h1>Welcome to the conseils:AJOUTER</h1>
+    <fieldset style="width: 50%"  >
+        {{ form_start(form) }}
+
+      TITRE :{{ form_widget(form.titre) }}</br>
+       TEXT: {{ form_widget(form.text) }}</br>
+        TYPE: {{ form_widget(form.type) }}</br>
+
+
+        {{ form_end(form) }}
+    </fieldset>
+    </center>
+
+                    <a href="{{ path('readconseils') }}">Lister </a>
+
+{% endblock %}
+

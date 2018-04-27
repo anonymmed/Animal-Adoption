@@ -1,0 +1,63 @@
+ajouter_centre_dressage:
+    path:     /ajouterCentreDressage
+    defaults: { _controller: ServiceBundle:CentreDressage:ajouterCentreDressage }
+
+modifier_centre_dressage:
+    path:     /modifierCentreDressage{id}
+    defaults: { _controller: ServiceBundle:CentreDressage:modifierCentreDressage }
+
+supprimer_centre_dressage:
+    path:     /supprimerCentreDressage{id}
+    defaults: { _controller: ServiceBundle:CentreDressage:supprimerCentreDressage }
+
+afficher_centre_dressage:
+    path:     /admin/afficherCentreDressage
+    defaults: { _controller: ServiceBundle:CentreDressage:afficherCentreDressage }
+
+reserver_petsitter:
+    path:     /reserverPetsitter
+    defaults: { _controller: ServiceBundle:ReservationPetsitter:reserverPetsitter }
+
+afficherReservation:
+    path:     /afficherReservation{idU}
+    defaults: { _controller: ServiceBundle:ReservationPetsitter:afficherReservation }
+
+annulerReservation:
+    path:     /annulerReservation{id}
+    defaults: { _controller: ServiceBundle:ReservationPetsitter:annulerReservation }
+
+afficherBack:
+    path:     /admin/afficherBack
+    defaults: { _controller: ServiceBundle:ReservationPetsitter:afficherBack }
+
+centreDressagePage:
+    path:     /centreDressagePage
+    defaults: { _controller: ServiceBundle:CentreDressage:centreDressagePage }
+
+petsitterPage:
+    path:     /petsitterPage
+    defaults: { _controller: ServiceBundle:ReservationPetsitter:petsitterPage }
+
+afficher_single_petsitter:
+    path:     /afficher_single_petsitter{id}
+    defaults: { _controller: ServiceBundle:ReservationPetsitter:afficher_single_petsitter }
+
+afficher_single_centreDressage:
+    path:     /afficher_single_centreDressage{id}
+    defaults: { _controller: ServiceBundle:CentreDressage:afficher_single_centreDressage }
+
+argent_encaisser:
+    path:     /argent_encaisser
+    defaults: { _controller: ServiceBundle:ReservationPetsitter:argent_encaisser }
+
+searchAjaxCentre:
+    path:     /searchAjaxCentre
+    defaults: { _controller: ServiceBundle:CentreDressage:rechercheAjaxCentre }
+
+searchAjaxReservation:
+    path:     /searchAjaxReservation
+    defaults: { _controller: ServiceBundle:ReservationPetsitter:rechercheAjaxReservation }
+
+pdf:
+    path:     /pdf
+    defaults: { _controller: ServiceBundle:CentreDressage:pdf }

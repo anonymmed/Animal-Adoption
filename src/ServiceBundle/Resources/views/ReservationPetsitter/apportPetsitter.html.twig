@@ -1,0 +1,17 @@
+{% extends 'TemplateBundle:Layout:backpage.html.twig' %}
+
+{% block  content%}
+
+    <center><h1>Gain Des Reservations</h1>
+    <div class="box-body">
+
+
+                {% for a in apports %}
+                     <h4><p> Le total du gain de ce pet sitter {{ a[1] }} est {{  a[2] }} Dt</p></h4>
+                {% endfor %}
+
+        {% for t in total %}
+            <h2><p>Total : {{ t[1] }} Dt</p></h2>
+        {% endfor %}
+
+{% endblock %}

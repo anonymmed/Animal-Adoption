@@ -1,0 +1,75 @@
+
+{% embed '@Template/Layout/single.html.twig' %}
+    {% block product %}
+        <form method="post" action="{{ path('ajouter_panier')}}">
+
+        {% for p in produit %}
+            <input hidden name="idProduit" value="{{ p.id }}">
+    <div class="single">
+<div class="container">
+    <div class="col-md-9">
+        <div class="col-md-5 grid">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li data-thumb="images/si.jpg">
+                        <div class="thumb-image"> <img src="{{ asset('images/' ~ p.Image) }}" data-imagezoom="true" class="img-responsive"> </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-7 single-top-in">
+            <div class="span_2_of_a1 simpleCart_shelfItem">
+               <!--Titre--> <h3>{{ p.libelle }}</h3>
+                <!--Sous Title--> <p class="in-para">{{  p.animal }}</p>
+                <div class="price_single">
+                    <!--Prix-->    <span class="reducedfrom item_price">{{  p.prix }} DT</span>
+                    <div class="clearfix"></div>
+                </div>
+                 <h4 class="quick">Description</h4>
+                <!--Description--> <p class="quick_desc">{{  p.description }}</p>
+
+                <div class="quantity">
+                    <div class="quantity-select">
+                        <div class="entry value-minus">&nbsp;</div>
+                        <div class="entry value"><span>1</span></div>
+                        <div class="entry value-plus active">&nbsp;</div>
+                    </div>
+                </div>
+
+                <!--quantity-->
+                <script>
+                    $('.value-plus').on('click', function(){
+                        var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+                        divUpd.text(newVal);
+                        $('input[name="quantite"]').val(newVal);
+                    });
+
+                    $('.value-minus').on('click', function(){
+                        var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+                        if(newVal>=1) divUpd.text(newVal);
+                        $('input[name="quantite"]').val(newVal);
+                    });
+                </script>
+                <!--quantity--><input hidden name="quantite" value="{{ 1 }}">
+
+                <input type="submit" class="add-to item_add hvr-skew-backward" value="Ajouter Au Panier">
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+        <div class="clearfix"> </div>
+        <!---->
+
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!---->
+    </div>
+    <!----->
+</div>
+    </div>
+{% endfor %}
+        </form>
+        {% endblock %}
+        {% endembed %}

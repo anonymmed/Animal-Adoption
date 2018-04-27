@@ -1,0 +1,69 @@
+create:
+    path:     /admin/create
+    defaults: { _controller: eventsBundle:concours:create }
+
+read:
+    path:     /admin/read
+    defaults: { _controller: eventsBundle:concours:read }
+
+readfront:
+    path:     /readfront
+    defaults: { _controller: eventsBundle:concours:readfront }
+
+delete:
+    path:     /admin/delete{id}
+    defaults: { _controller: eventsBundle:concours:delete }
+
+update:
+    path:     /admin/update{id}
+    defaults: { _controller: eventsBundle:concours:update }
+
+
+
+createconseils:
+    path:     /admin/createconseils
+    defaults: { _controller: eventsBundle:conseils:create }
+
+
+readconseils:
+    path:     /admin/readconseils
+    defaults: { _controller: eventsBundle:conseils:read }
+
+readconseilsfront:
+    path:     /readconseilsfront
+    defaults: { _controller: eventsBundle:conseils:readfrontconseil}
+
+participer1:
+    path:     /redirect{id}
+    defaults: { _controller: eventsBundle:concours:redirectfront }
+
+
+participer:
+    path:     /participer
+    defaults: { _controller: eventsBundle:concours:particiaption }
+
+
+searchajax:
+    path:     /admin/searchajax
+    defaults: { _controller: eventsBundle:concours:rechercheAjax }
+
+
+deleteconseils:
+      path:     /admin/deleteconseils{id}
+      defaults: { _controller: eventsBundle:conseils:delete }
+
+updateconseils:
+    path:     /admin/updateconseils{id}
+    defaults: { _controller: eventsBundle:conseils:updatee }
+
+pdf:
+    path:     /admin/pdf
+    defaults: { _controller: eventsBundle:concours:pdf }
+
+graphePieEvents:
+       path:  /admin/pieevents
+       defaults: { _controller: eventsBundle:concours:stati }
+
+recherchedate:
+    path:     /admin/recherchedate
+    defaults: { _controller: eventsBundle:concours:recherchedate }

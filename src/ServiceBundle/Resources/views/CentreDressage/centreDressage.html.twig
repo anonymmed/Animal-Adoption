@@ -1,0 +1,64 @@
+{% extends 'TemplateBundle:Layout:frontpage.html.twig' %}
+
+{% block content %}
+
+    <br>
+        <center><h2 >Centre De Dressage</h2></center> </div>
+            <div class="product">
+
+                <div class="container">
+                    <div class="col-md-9">
+                        <div class="mid-popular">
+                            {% for centre in centresD  %}
+                                <div class="col-md-4 item-grid1 simpleCart_shelfItem">
+
+                                    <div class=" mid-pop">
+                                        <div class="pro-img">
+                                            <img src="{{ asset('images/' ~ centre.image) }}" class="img-responsive" alt="">
+
+                                            <div class="zoom-icon ">
+                                                <a class="picture" href="{{ asset('images/' ~ centre.image) }}" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                                                <a href="{{ path('afficher_single_centreDressage',{'id':centre.id}) }}"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="mid-1">
+                                            <div class="women">
+                                                    <h6><a href="">{{centre.libelle }}</a></h6><br>
+                                                </div>
+                                            <div class="women-top">
+                                                <a href="{{ path('afficher_single_centreDressage',{'id':centre.id}) }}" class="btn btn-default"><span>Voir en detail</span></a>
+                                            </div>
+                                                <div class="img item_add">
+                                                    <a href="#"><img src="{{ asset('images/ca.png') }}" alt=""></a>
+                                                </div>
+                                                <div class="img item_add">
+                                                    <a href="#"><img src="../../../../../web/images/ca.png" alt=""></a>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="mid-2">
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--//content-->
+
+        {% endblock %}
+
